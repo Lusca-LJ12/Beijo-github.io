@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bora se beijar?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #a8c4ff; /* Cor de fundo azul claro */
+            background-image: url('link-para-imagem-de-coracoes'); /* Link para uma imagem de corações de fundo */
+            background-repeat: repeat; /* Repetir a imagem de fundo */
+        }
+        
+        h1 {
+            font-size: 48px; /* Tamanho da fonte aumentado */
+            margin-bottom: 20px;
+        }
+        
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .button-wrapper button {
+            margin: 0 10px;
+            font-size: 24px; /* Tamanho da fonte */
+        }
+        
+        #naoButton {
+            position: absolute; /* Adicionar posicionamento absoluto para o botão "Não" */
+            top: 50%; /* Definir a posição verticalmente no meio */
+            left: 50%; /* Definir a posição horizontalmente no meio */
+            transform: translate(-50%, -50%); /* Centralizar o botão no meio da tela */
+        }
+        
+        @keyframes moveButton {
+            0% { left: 50%; top: 50%; } /* Posição inicial no centro */
+            25% { left: 10%; top: 10%; } /* Primeira posição aleatória */
+            50% { left: 90%; top: 10%; } /* Segunda posição aleatória */
+            75% { left: 10%; top: 90%; } /* Terceira posição aleatória */
+            100% { left: 90%; top: 90%; } /* Quarta posição aleatória */
+        }
+        
+        #naoButton.moved {
+            animation: moveButton 3s infinite; /* Animar o movimento do botão "Não" */
+        }
+    </style>
+    <script>
+        function trocarPosicaoNao() {
+            var naoButton = document.getElementById('naoButton');
+            naoButton.classList.toggle('moved'); // Alternar a classe "moved"
+        }
+        
+        function redirecionarParaLinkSim() {
+            window.location.href = 'parte2.html';
+        }
+    </script>
+</head>
+<body>
+    <h1>Eai, bora se beijar?</h1>
+    <div class="button-wrapper">
+        <button id="simButton" onclick="redirecionarParaLinkSim()">Sim</button>
+        <button id="naoButton" onclick="trocarPosicaoNao()">Não</button>
+    </div>
+</body>
+</html>
